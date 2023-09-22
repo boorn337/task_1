@@ -1,0 +1,13 @@
+.search {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 0 50px;
+  margin-bottom: 0;
+  margin-top: 25px;
+}
+.search-components input {
+  width: 400px;
+  height: 24px;
+  margin-right: 25px;
+}

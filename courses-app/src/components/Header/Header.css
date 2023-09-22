@@ -1,0 +1,39 @@
+header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0 30px;
+  border: 1px solid red;
+  margin: 30px 20px;
+  margin-bottom: 0;
+  padding-bottom: 5px;
+  height: 60px;
+}
+header div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.imgCourses {
+  padding-top: 5px;
+}
+.imgCourses p {
+  margin-top: 10px;
+  padding-left: 80px;
+  padding-right: 10px;
+  font-size: 19px;
+  padding-bottom: 3px;
+  background-color: rgba(0, 0, 0, 0.821);
+  color: white;
+}
+.log-in {
+  margin-top: 10px;
+}
+.log-in button {
+  margin-left: 20px;
+}
+.nickName {
+  margin-top: 18px;
+  font-size: 18px;
+  margin: 0;
+}

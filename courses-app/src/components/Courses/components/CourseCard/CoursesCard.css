@@ -1,0 +1,39 @@
+.courses-card {
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid rgb(0, 97, 118);
+  margin: 0 50px;
+  align-self: center;
+  margin-top: 30px;
+  margin-bottom: 10px;
+}
+.about-cours {
+  padding-right: 380px;
+  padding-left: 50px;
+}
+.about-cours p {
+  padding-bottom: 10px;
+}
+.cours-info {
+  margin-right: 200px;
+  width: auto;
+  align-self: center;
+}
+.cours-info div {
+  display: flex;
+  align-items: center;
+
+  height: 40px;
+}
+.cours-info div:last-of-type {
+  margin-bottom: 0;
+}
+.cours-info button {
+  margin-bottom: 10px;
+}
+.cours-info h3 {
+  margin: 0;
+  margin-right: 10px;
+  font-weight: 500;
+  font-size: 17px;
+}
