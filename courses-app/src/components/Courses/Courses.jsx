@@ -1,6 +1,6 @@
 import CoursesCard from "./components/CourseCard/CourseCard";
 
-const Courses = ({ courses, setCoursesList }) => {
+const Courses = ({ courses }) => {
   const coursesComponents = courses.map((card, index) => {
     return (
       <CoursesCard

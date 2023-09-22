@@ -1,5 +1,6 @@
 import "./SearchBar.css";
 import Button from "../../../../common/Button/Button";
+import { useState } from "react";
 // import Courses from "../../Courses";
 
 const SearchBar = ({
@@ -9,27 +10,33 @@ const SearchBar = ({
   isCreateOpened,
   setFilteredList,
 }) => {
+  const [searchValue, setSearchValue] = useState();
   const addCourse = (course) => {
     setCoursesList([...coursesList, course]);
   };
   const handleSearch = () => {
-    const value = document.getElementById("searchInput").value;
-
     const filteredList = coursesList.filter((element) => {
       return (
-        element.name === value.toString() || element.id === value.toString()
+        element.name
+          .toLowerCase()
+          .includes(searchValue.toString().toLowerCase()) ||
+        element.id === searchValue.toString()
       );
     });
-    if (value) {
+    if (searchValue) {
       setFilteredList(filteredList);
-    } else {
-      setFilteredList(coursesList);
+      return;
     }
+    setFilteredList(coursesList);
   };
   return (
     <div className="search">
       <div className="search-components">
-        <input type="text" id="searchInput" />
+        <input
+          type="text"
+          id="searchInput"
+          onChange={(event) => setSearchValue(event.target.value)}
+        />
         <Button text="Search" onClick={handleSearch} />
       </div>
       <Button

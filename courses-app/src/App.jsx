@@ -24,7 +24,7 @@ function App() {
               isCreateOpened={isCreateOpened}
               setFilteredList={setFilteredList}
             />
-            <Courses courses={filteredList} setCoursesList={setCoursesList} />
+            <Courses courses={filteredList} />
           </>
         ) : (
           <CreateCourse />
