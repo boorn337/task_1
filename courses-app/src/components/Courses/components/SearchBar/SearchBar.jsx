@@ -1,20 +1,30 @@
 import "./SearchBar.css";
 import Button from "../../../../common/Button/Button";
-import Courses from "../../Courses";
+// import Courses from "../../Courses";
 
 const SearchBar = ({
   setCoursesList,
   coursesList,
   setIsCreateOpened,
   isCreateOpened,
+  setFilteredList,
 }) => {
   const addCourse = (course) => {
     setCoursesList([...coursesList, course]);
   };
   const handleSearch = () => {
     const value = document.getElementById("searchInput").value;
-    console.log(value);
-    console.log(coursesList);
+
+    const filteredList = coursesList.filter((element) => {
+      return (
+        element.name === value.toString() || element.id === value.toString()
+      );
+    });
+    if (value) {
+      setFilteredList(filteredList);
+    } else {
+      setFilteredList(coursesList);
+    }
   };
   return (
     <div className="search">
