@@ -13,16 +13,17 @@
 }
 .about-cours p {
   padding-bottom: 10px;
+  width: 1fr;
 }
 .cours-info {
-  margin-right: 200px;
+  margin-right: 30px;
   width: auto;
   align-self: center;
 }
 .cours-info div {
   display: flex;
   align-items: center;
-
+  flex-direction: row;
   height: 40px;
 }
 .cours-info div:last-of-type {
@@ -36,4 +37,13 @@
   margin-right: 10px;
   font-weight: 500;
   font-size: 17px;
+}
+.cours-info div {
+  margin-right: 180px;
+}
+.author {
+  width: 210px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }

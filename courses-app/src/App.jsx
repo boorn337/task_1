@@ -11,6 +11,9 @@ function App() {
   const [coursesList, setCoursesList] = useState(courses);
   const [filteredList, setFilteredList] = useState(courses);
   const [isCreateOpened, setIsCreateOpened] = useState(false);
+  useEffect(() => {
+    setFilteredList(coursesList);
+  }, [coursesList, setCoursesList]);
   return (
     <>
       <Header />
@@ -27,7 +30,12 @@ function App() {
             <Courses courses={filteredList} />
           </>
         ) : (
-          <CreateCourse />
+          <CreateCourse
+            setIsCreateOpened={setIsCreateOpened}
+            isCreateOpened={isCreateOpened}
+            coursesList={coursesList}
+            setCoursesList={setCoursesList}
+          />
         )}
       </div>
     </>

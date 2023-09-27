@@ -2,6 +2,7 @@ import "./CoursesCard.css";
 import Button from "../../../../common/Button/Button";
 
 const CoursesCard = ({ name, text, authors, time, date, id }) => {
+  const authorNames = authors.map((author) => author.name).join(", ");
   return (
     <div id={id} className="courses-card">
       <div className="about-cours">
@@ -11,7 +12,7 @@ const CoursesCard = ({ name, text, authors, time, date, id }) => {
       <div className="cours-info">
         <div>
           <h3>Authors:</h3>
-          <p>{authors}</p>
+          <p className="author">{authorNames}</p>
         </div>
         <div>
           <h3>Duration:</h3>
