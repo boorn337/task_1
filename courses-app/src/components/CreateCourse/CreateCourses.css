@@ -77,3 +77,8 @@ p {
   align-items: center;
   margin-right: 300px;
 }
+.author-list {
+  display: flex;
+  align-items: center;
+  margin: 10px;
+}
