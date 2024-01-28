@@ -27,9 +27,11 @@ const CreateCourse = ({
   const enterTitle = (value) => {
     setCourse({ ...course, name: value });
   };
+
   const enterDescription = (value) => {
     setCourse({ ...course, text: value });
   };
+
   const Duration = ({ minutes }) => {
     if (!minutes) {
       return (
@@ -53,6 +55,7 @@ const CreateCourse = ({
       </h1>
     );
   };
+
   const AuthorsList = ({ authorList }) => {
     const handleRemoveAuthor = (index) => {
       const updatedList = authorList.filter((_, i) => i !== index);
@@ -62,7 +65,7 @@ const CreateCourse = ({
     };
     return authorList.map((author, index) => {
       return (
-        <div key={index} className="author-list">
+        <div key={index}>
           <p>{author.name}</p>
           <Button
             disabled={false}
@@ -75,6 +78,7 @@ const CreateCourse = ({
       );
     });
   };
+
   const Authors = ({ authors }) => {
     const handleClick = (author) => {
       setAuthorList([...authorList, author]);
@@ -96,6 +100,7 @@ const CreateCourse = ({
       );
     });
   };
+  
   const createAuthor = () => {
     const id = uuidv4();
     const tempAuthors = [...authors, { id: id, name: author }];
@@ -125,6 +130,8 @@ const CreateCourse = ({
     setCoursesList([...coursesList, course]);
     setIsCreateOpened(!isCreateOpened);
   };
+
+
   return (
     <>
       <div className="title-bar">
@@ -135,7 +142,10 @@ const CreateCourse = ({
             placeholder="Enter title..."
             onChange={(event) => enterTitle(event.target.value)}
           />
-          <Button text="Create course" onClick={createCourse}></Button>
+          <div className="button-area">
+            <Button text="Create course" onClick={createCourse}></Button>
+            <Button text="Leave" onClick={()=>{setIsCreateOpened(!isCreateOpened)}}></Button>
+          </div>
         </div>
         <p>Description</p>
         <textarea
@@ -165,7 +175,7 @@ const CreateCourse = ({
           <div>
             <p>Duration</p>
             <input
-              type="text"
+              type="number"
               placeholder="Enter duration in minutes..."
               onChange={(event) => {
                 setMinutes(event.target.value);
@@ -180,8 +190,8 @@ const CreateCourse = ({
           <div className="authors-include">
             <Authors authors={authors} />
           </div>
-          <h2>Course autors</h2>
-          <div>
+          <h2>Course authors</h2>
+          <div className="authors-include">
             {!authorList.length ? (
               <p>Author list is empty</p>
             ) : (
