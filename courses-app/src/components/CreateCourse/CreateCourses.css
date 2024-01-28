@@ -77,8 +77,9 @@ p {
   align-items: center;
   margin-right: 300px;
 }
-.author-list {
+.button-area{
   display: flex;
-  align-items: center;
-  margin: 10px;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 80px;
 }
