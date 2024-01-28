@@ -2,8 +2,9 @@ import "./CreateCourses.css";
 import Button from "../../common/Button/Button";
 import { mockedAuthorsList } from "../../constants";
 import { v4 as uuidv4 } from "uuid";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { courses } from "../../constants";
+import pipeDuration from "../../helper/pipeDuration";
 const CreateCourse = ({
   setIsCreateOpened,
   isCreateOpened,
@@ -20,7 +21,7 @@ const CreateCourse = ({
     text: "",
     authors: [],
     time: 0,
-    date: 0,
+    date: "",
     id: "",
   });
 
@@ -40,15 +41,7 @@ const CreateCourse = ({
         </h1>
       );
     }
-    const num = Number.parseInt(minutes);
-    const hours = num / 60;
-    let rhours = Math.floor(hours);
-    const minut = (hours - rhours) * 60;
-    let rminut = Math.floor(minut);
-    rhours = rhours < 9 ? "0" + rhours : rhours;
-    rminut = rminut < 9 ? "0" + rminut : rminut;
-    const time = rhours + ":" + rminut;
-
+    const time = pipeDuration(minutes);
     return (
       <h1>
         Duration: <span>{time}</span> hours
@@ -107,17 +100,9 @@ const CreateCourse = ({
     setAuthors(tempAuthors);
   };
 
+
   const createCourse = () => {
     setCourse({ ...course, id: uuidv4() });
-    var today = new Date(),
-      date =
-        today.getFullYear() +
-        "-" +
-        (today.getMonth() + 1) +
-        "-" +
-        today.getDate();
-    setCourse({ ...course, date: date });
-
     if (
       !course.name ||
       !course.text ||
@@ -130,6 +115,12 @@ const CreateCourse = ({
     setCoursesList([...coursesList, course]);
     setIsCreateOpened(!isCreateOpened);
   };
+
+  useEffect(()=> {
+    const currentDate = new Date();
+    const formattedDate = currentDate.toLocaleDateString();
+    setCourse({ ...course, date: formattedDate });
+  }, [])
 
 
   return (
